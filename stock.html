@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>在庫一覧 | YUNEstore</title>
+  <title>在庫一覧｜YUNEOfficial</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -13,14 +13,152 @@
       color: white;
       text-align: center;
     }
+
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-top: 40px;
+    }
+
+    /* ハンバーガーメニュー */
+    .menu-icon {
+      font-size: 28px;
+      cursor: pointer;
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
+
+    #side-menu {
+      position: fixed;
+      top: 0;
+      right: -200px;
+      width: 200px;
+      height: 100%;
+      background: #020617;
+      padding-top: 60px;
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+
+    #side-menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px;
+      font-weight: bold;
+    }
+
+    #side-menu a:hover {
+      background: #1e293b;
+    }
+
+    /* 在庫カード */
+    .stock-card {
+      background: #020617;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .stock-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .stock-info {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .price {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .available {
+      background: #16a34a;
+    }
+
+    .sold {
+      background: #475569;
+    }
+
+    .back-btn {
+      display: block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #38bdf8;
+      font-weight: bold;
+    }
   </style>
 </head>
 
 <body>
-  <h1>在庫一覧</h1>
-  <p>
-    現在販売中の在庫はこちらです。<br>
-    詳細は各販売ページをご確認ください。
-  </p>
+
+  <!-- 三本線 -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <!-- メニュー -->
+  <nav id="side-menu">
+    <a href="index.html">HOME</a>
+    <a href="stock.html">在庫一覧</a>
+  </nav>
+
+  <div class="container">
+    <h1>在庫一覧</h1>
+
+    <!-- 在庫1 -->
+    <div class="stock-card">
+      <div class="stock-title">◾ Fortnite 引退アカウント</div>
+      <div class="stock-info">
+        スキン数：120+<br>
+        ランク：チャプター2最高ランク<br>
+        メール変更：可能
+      </div>
+      <div class="price">¥8,000</div>
+      <div class="status available">在庫あり</div>
+    </div>
+
+    <!-- 在庫2 -->
+    <div class="stock-card">
+      <div class="stock-title">◾ Fortnite 超低アクティブ垢</div>
+      <div class="stock-info">
+        スキン数：60+<br>
+        最終ログイン：2年以上前<br>
+        メール変更：可能
+      </div>
+      <div class="price">¥5,000</div>
+      <div class="status sold">SOLD</div>
+    </div>
+
+    <a href="index.html" class="back-btn">← HOMEに戻る</a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("side-menu");
+      menu.style.right = menu.style.right === "0px" ? "-200px" : "0px";
+    }
+  </script>
+
 </body>
 </html>
