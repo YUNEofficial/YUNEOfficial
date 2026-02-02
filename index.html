@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -21,6 +21,25 @@
       opacity: 0.9;
     }
 
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .profile-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: block;
+      margin: 20px auto;
+      border: 3px solid #1da1f2;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin: 30px 0;
+    }
 
     .btn {
       display: block;
@@ -41,37 +60,18 @@
     }
 
     .button-group {
-      margin-bottom: 20px; /* ボタン間の余白 */
+      margin-bottom: 25px;
     }
 
     .button-group img {
-      width: 80px;              /* ← サイズを大きく */
-      height: 80px;             /* ← 縦横を同じに */
-      border-radius: 50%;       /* ← これで丸くなる */
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
       display: block;
       margin: 0 auto 8px;
     }
 
-    .container {
-  　 max-width: 420px;
-     margin: 0 auto;
-    }
-    .profile-icon {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      display: block;
-      margin: 20px auto;
-      border: 3px solid #1da1f2;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      margin: 30px 0;
-    }
-
-
+    /* ハンバーガーメニュー */
     .menu-icon {
       font-size: 28px;
       cursor: pointer;
@@ -90,6 +90,7 @@
       background: #020617;
       padding-top: 60px;
       transition: left 0.3s ease;
+      z-index: 999;
     }
 
     #side-menu a {
@@ -103,78 +104,63 @@
     #side-menu a:hover {
       background: #1e293b;
     }
-
-
-
-
   </style>
 </head>
 
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById("side-menu");
-    if (menu.style.left === "0px") {
-      menu.style.left = "-200px";
-    } else {
-      menu.style.left = "0px";
-    }
-  }
-</script>
-  
 <body>
- <div class="menu">
-  <div class="menu-icon" onclick="toggleMenu()">
-    ☰
-  </div>
+
+  <!-- ハンバーガーメニュー -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
   <nav id="side-menu">
     <a href="index.html">HOME</a>
     <a href="stock.html">在庫一覧</a>
-   </nav>
-</div>
+  </nav>
 
-  <img src="yune.png" alt="YUNEOfficial" class="profile-icon">
-  <h1>YUNEOfficial</h1>
-
-  <p>
-    YUNEstore公式サイトへようこそ！<br><br>
-    引退品、超低アクティブ品のみを扱っているので、<br>
-    取り返しの心配をすることなく安全にアカウントを購入することができます！<br><br>
-    また、直販所は他サイトでの販売よりお安くご購入することが可能です！<br>
-    ぜひご検討ください
-  </p>
-  <hr>
-
-
-  <div class="button-group">
-    <img src="X画像.png" alt="公式X">
-    <a href="https://x.com/ZAosl59EPP89142" class="btn">公式X</a>
-  </div>
-
-  <div class="button-group">
-    <img src="gameclub.png" alt="ゲームクラブ">
-    <a href="https://gameclub.jp/users/204152/products" class="btn" target="_blank" rel="noopener noreferrer">
-      ゲームクラブ
-    </a>
-  </div>
-
-  <div class="button-group">
-    <img src="yune.png" alt="YUNEstore">
-    <a href="https://t.me/+1UkUU2JNstM5MWI1" class="btn" target="_blank" rel="noopener noreferrer">
-      YUNEstore直販所
-    </a>
-  </div>
-<body>
   <div class="container">
 
+    <img src="yune.png" alt="YUNEOfficial" class="profile-icon">
+    <h1>YUNEOfficial</h1>
+
+    <p>
+      YUNEstore公式サイトへようこそ！<br><br>
+      引退品、超低アクティブ品のみを扱っているので、<br>
+      取り返しの心配をすることなく安全にアカウントを購入することができます！<br><br>
+      また、直販所は他サイトでの販売よりお安くご購入することが可能です！<br>
+      ぜひご検討ください
+    </p>
+
+    <hr>
+
+    <div class="button-group">
+      <img src="X画像.png" alt="公式X">
+      <a href="https://x.com/ZAosl59EPP89142" class="btn">公式X</a>
+    </div>
+
+    <div class="button-group">
+      <img src="gameclub.png" alt="ゲームクラブ">
+      <a href="https://gameclub.jp/users/204152/products" class="btn" target="_blank" rel="noopener noreferrer">
+        ゲームクラブ
+      </a>
+    </div>
+
+    <div class="button-group">
+      <img src="yune.png" alt="YUNEstore">
+      <a href="https://t.me/+1UkUU2JNstM5MWI1" class="btn" target="_blank" rel="noopener noreferrer">
+        YUNEstore直販所
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("side-menu");
+      menu.style.left = menu.style.left === "0px" ? "-200px" : "0px";
+    }
+  </script>
+
+</body>
 </html>
-
-
-
-
-
-
-
-
 
 
