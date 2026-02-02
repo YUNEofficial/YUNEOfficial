@@ -110,6 +110,17 @@
   </style>
 </head>
 
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("side-menu");
+    if (menu.style.left === "0px") {
+      menu.style.left = "-200px";
+    } else {
+      menu.style.left = "0px";
+    }
+  }
+</script>
+  
 <body>
  <div class="menu">
   <div class="menu-icon" onclick="toggleMenu()">
@@ -157,6 +168,7 @@
   <div class="container">
 
 </html>
+
 
 
 
