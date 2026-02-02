@@ -102,7 +102,6 @@
       background: #475569;
     }
 
-    /* 購入ボタン */
     .stock-actions {
       margin-top: 15px;
     }
@@ -121,6 +120,11 @@
 
     .buy-btn:hover {
       opacity: 0.85;
+    }
+
+    .buy-btn.disabled {
+      background: #64748b;
+      pointer-events: none;
     }
 
     .back-btn {
@@ -147,47 +151,8 @@
   <div class="container">
     <h1>在庫一覧</h1>
 
-    <!-- 在庫1 -->
-    <div class="stock-card">
-      <div class="stock-title">◾ Fortnite エリートエージェント＋フルオメガ</div>
-      <div class="stock-info">
-        名前：即変更可能✅<br>
-        V-bucks：200💰<br>
-        メールアドレス：譲渡可能✅
-      </div>
-      <div class="price">¥4,200</div>
-      <div class="status available">在庫あり</div>
-
-      <div class="stock-actions">
-        <a href="https://gameclub.jp/fortnight/12465930"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="buy-btn">
-          ゲームクラブで購入
-        </a>
-      </div>
-    </div>
-
-    <!-- 在庫2 -->
-    <div class="stock-card">
-      <div class="stock-title">◾ Fortnite 負け犬＋ポニーアップ＋青ニット</div>
-      <div class="stock-info">
-        名前：即変更可能✅<br>
-        V-bucks：450💰<br>
-        メールアドレス：譲渡可能✅
-      </div>
-      <div class="price">¥1,500</div>
-      <div class="status available">在庫あり</div>
-
-      <div class="stock-actions">
-        <a href="https://gameclub.jp/fortnight/12431788"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="buy-btn">
-          ゲームクラブで購入
-        </a>
-      </div>
-    </div>
+    <!-- JSで在庫を描画 -->
+    <div id="stock-list"></div>
 
     <a href="index.html" class="back-btn">← HOMEに戻る</a>
   </div>
@@ -197,6 +162,54 @@
       const menu = document.getElementById("side-menu");
       menu.style.right = menu.style.right === "0px" ? "-200px" : "0px";
     }
+
+    /* ===== 在庫データ ===== */
+    const stocks = [
+      {
+        title: "◾ Fortnite エリートエージェント＋フルオメガ",
+        vbucks: 200,
+        price: 4200,
+        available: true,
+        url: "https://gameclub.jp/fortnight/12465930"
+      },
+      {
+        title: "◾ Fortnite 負け犬＋ポニーアップ＋青ニット",
+        vbucks: 450,
+        price: 1500,
+        available: true,
+        url: "https://gameclub.jp/fortnight/12431788"
+      }
+    ];
+
+    const stockList = document.getElementById("stock-list");
+
+    stocks.forEach(stock => {
+      const card = document.createElement("div");
+      card.className = "stock-card";
+
+      card.innerHTML = `
+        <div class="stock-title">${stock.title}</div>
+        <div class="stock-info">
+          名前：即変更可能✅<br>
+          V-bucks：${stock.vbucks}💰<br>
+          メールアドレス：譲渡可能✅
+        </div>
+        <div class="price">¥${stock.price.toLocaleString()}</div>
+        <div class="status ${stock.available ? "available" : "sold"}">
+          ${stock.available ? "在庫あり" : "売り切れ"}
+        </div>
+        <div class="stock-actions">
+          <a href="${stock.url}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="buy-btn ${stock.available ? "" : "disabled"}">
+            ゲームクラブで購入
+          </a>
+        </div>
+      `;
+
+      stockList.appendChild(card);
+    });
   </script>
 
 </body>
