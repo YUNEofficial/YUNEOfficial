@@ -57,6 +57,35 @@
       background: #1e293b;
     }
 
+    /* 上部ボタン */
+    .top-buttons {
+      display: flex;
+      gap: 12px;
+      margin: 20px 0 30px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      transition: opacity 0.15s;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    .btn-telegram {
+      background: #229ED9;
+    }
+
+    .btn-expense {
+      background: #ef4444;
+    }
+
     /* 在庫カード */
     .stock-card {
       background: #020617;
@@ -64,6 +93,12 @@
       padding: 15px;
       margin: 20px 0;
       text-align: left;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .stock-card:hover {
+      background: #020617dd;
     }
 
     .stock-title {
@@ -126,12 +161,23 @@
   <div class="container">
     <h1>在庫一覧</h1>
 
+    <!-- 上部ボタン -->
+    <div class="top-buttons">
+      <!-- 自分のTelegramに変更 -->
+      <a href="https://t.me/your_telegram" target="_blank" class="btn btn-telegram">
+        テレグラム（直販所）
+      </a>
+      <a href="gameclub_expense.html" class="btn btn-expense">
+        ゲームクラブの出費
+      </a>
+    </div>
+
     <!-- 在庫1 -->
-    <div class="stock-card">
+    <div class="stock-card" onclick="openTelegram()">
       <div class="stock-title">◾ Fortnite エリートエージェント＋フルオメガ</div>
       <div class="stock-info">
         名前：即変更可能✅<br>
-        V-bucks:200💰<br>
+        V-bucks：200💰<br>
         メールアドレス：譲渡可能✅
       </div>
       <div class="price">¥4,200</div>
@@ -139,10 +185,10 @@
     </div>
 
     <!-- 在庫2 -->
-    <div class="stock-card">
+    <div class="stock-card" onclick="openTelegram()">
       <div class="stock-title">◾ Fortnite 超低アクティブ垢</div>
       <div class="stock-info">
-        名前:即変更可能✅<br>
+        名前：即変更可能✅<br>
         V-bucks：450💰<br>
         メールアドレス：譲渡可能✅
       </div>
@@ -157,6 +203,10 @@
     function toggleMenu() {
       const menu = document.getElementById("side-menu");
       menu.style.right = menu.style.right === "0px" ? "-200px" : "0px";
+    }
+
+    function openTelegram() {
+      window.open("https://t.me/your_telegram", "_blank");
     }
   </script>
 
