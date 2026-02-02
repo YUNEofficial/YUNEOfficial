@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -71,25 +71,25 @@
       margin: 0 auto 8px;
     }
 
-    /* ハンバーガーメニュー */
+    /* ハンバーガーメニュー（右上） */
     .menu-icon {
       font-size: 28px;
       cursor: pointer;
       position: fixed;
       top: 15px;
-      left: 15px;
+      right: 15px;
       z-index: 1000;
     }
 
     #side-menu {
       position: fixed;
       top: 0;
-      left: -200px;
+      right: -200px;
       width: 200px;
       height: 100%;
       background: #020617;
       padding-top: 60px;
-      transition: left 0.3s ease;
+      transition: right 0.3s ease;
       z-index: 999;
     }
 
@@ -109,9 +109,10 @@
 
 <body>
 
-  <!-- ハンバーガーメニュー -->
+  <!-- 三本線 -->
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
+  <!-- サイドメニュー -->
   <nav id="side-menu">
     <a href="index.html">HOME</a>
     <a href="stock.html">在庫一覧</a>
@@ -156,11 +157,12 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById("side-menu");
-      menu.style.left = menu.style.left === "0px" ? "-200px" : "0px";
+      menu.style.right = menu.style.right === "0px" ? "-200px" : "0px";
     }
   </script>
 
 </body>
 </html>
+
 
 
