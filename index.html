@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -15,8 +15,11 @@
     }
 
     p {
-      line-height: 1.6;
+      line-height: 1.8;
+      font-size: 14px;
+      opacity: 0.9;
     }
+
 
     .btn {
       display: block;
@@ -28,6 +31,12 @@
       border-radius: 8px;
       text-align: center;
       font-weight: bold;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #38bdf8;
+      transform: translateY(-2px);
     }
 
     .button-group {
@@ -42,10 +51,32 @@
       margin: 0 auto 8px;
     }
 
+    .container {
+  　 max-width: 420px;
+     margin: 0 auto;
+    }
+    .profile-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: block;
+      margin: 20px auto;
+      border: 3px solid #1da1f2;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin: 30px 0;
+    }
+
+
+
   </style>
 </head>
 
 <body>
+  <img src="yune.png" alt="YUNEOfficial" class="profile-icon">
   <h1>YUNEOfficial</h1>
 
   <p>
@@ -55,6 +86,8 @@
     また、直販所は他サイトでの販売よりお安くご購入することが可能です！<br>
     ぜひご検討ください
   </p>
+  <hr>
+
 
   <div class="button-group">
     <img src="X画像.png" alt="公式X">
@@ -74,9 +107,11 @@
       YUNEstore直販所
     </a>
   </div>
+<body>
+  <div class="container">
 
-</body>
 </html>
+
 
 
 
